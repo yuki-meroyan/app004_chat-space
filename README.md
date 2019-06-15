@@ -23,7 +23,7 @@
 
 - has_many :users, through: members
 - has_many :messages
-- has_many :users
+- has_many :members
 
 ## members table
 
