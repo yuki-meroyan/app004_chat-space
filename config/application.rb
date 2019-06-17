@@ -13,7 +13,7 @@ module App004ChatSpace
     # -- all .rb files in that directory are automatically loaded.
     
     # 必要ないファイルを生成しないように設定
-    config.gerenators do |g|
+    config.generators do |g|
       g.stylesheets     false
       g.javascripts     false
       g.helper          false
