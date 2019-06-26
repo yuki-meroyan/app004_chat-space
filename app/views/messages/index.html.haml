@@ -1,0 +1,61 @@
+
+.flash-box
+  グループを作成しました。
+
+-# リンクと表示文字は仮置き
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__user-name
+          wwwwwwww
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__new-group
+            =link_to "https://www.facebook.com/" do
+              =fa_icon "pencil-square-o", class: "fa fa-edit" 
+              
+          %li.side-header__box__menu__edit-user
+            =link_to "https://twitter.com/" do
+              =fa_icon 'cog', class: "fa fa-cog"
+    .groups
+      .group
+        %p.group__group-name
+          sample_groups
+        %p.group__latest-message
+          test_test
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group
+          sample_group
+        %ul.main-header__left-box__member-list
+          Member：
+          %li.main-header__left-box__member-list__member
+            sample999
+      =link_to "https://master.tech-camp.in/" do 
+        .main-header__edit-btn Edit
+        
+    .messages
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            sample999
+          %p.message__upper-info__date
+            2019/06/14(Fri) 12:26:27
+        %p.message__text
+          test
+
+    .form
+      %form( id="new_message" class="new_message" enctype="multipart/form-data" accept-charset="UTF-8" )
+        %input( name="utf8" type="hidden" value="&#x2713;" )
+        %input( type="hidden" name="authenticity_token" value="94sWryZo6n6nSuqmxOcgdbLhCdQio51sSn5Ef914QoTXvi6Du+l5U1YQ22H2rd+qvowdmCMXpE6tU29YUNkW4g==" )
+        .input-box
+          %input( placeholder="type a message" class="input-box__text" type="text" name="message[content]" id="message_content" )
+          %label( class="input-box__image" for="message_image" )
+            %i( class="fa fa-image" )
+            -# type='file' でファイルを選択するフォームができる。
+            %input( class="input-box__image__file" type="file" name="message[image]" id="message_image" )
+        %input( type="submit" name="commit" value="Send" class="submit-btn" data-disable-with="Send" )
+
+        
+
