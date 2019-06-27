@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 # protected に設定されたメソッドは、そのメソッドを持つオブジェクトが self であるコンテキスト(メソッド定義式や instance_eval )でのみ呼び出せ ます。
 # private   に設定されたメソッドは関数形式でしか呼び出せません。
 
+  protected
+  
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
