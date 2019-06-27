@@ -87,12 +87,14 @@ li {
 
 .group{
   margin-bottom: 40px;
-  p{
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  a {
+    color: white;
+    text-decoration: none;
   }
   &__group-name{
     font-size: 15px;
