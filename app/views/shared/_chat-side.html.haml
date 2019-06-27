@@ -11,8 +11,6 @@
         %li.side-header__box__menu__edit-user
           = link_to edit_user_path(current_user) do
             = fa_icon 'cog', class: 'fa fa-cog'
-          -# =link_to "https://twitter.com/" do
-          -#   =fa_icon 'cog', class: "fa fa-cog"
   .groups
     .group
       - current_user.groups.each do |group|
