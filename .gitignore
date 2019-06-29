@@ -19,3 +19,5 @@
 # コミットしたくないファイル・ディレクトリを設定
 public/uploads/*
 
+# Ignore uploaded files in development
+ /public/uploads/
