@@ -1,0 +1,51 @@
+.wrapper
+
+  = render 'shared/chat-side'
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group
+          = @group.name
+        %ul.main-header__left-box__member-list
+          Member：
+          - @group.users.each_with_index do |group_user,i|
+            %li.main-header__left-box__member-list__member
+              = group_user.name
+            
+            
+      =link_to root_path do 
+        .main-header__edit-btn Edit
+        
+    .messages
+      = render @messages
+      -# 省略せずに記述すると　「= render partial: 'message', collection: @messages」
+    
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, id: 'message_content', placeholder: 'type a message'
+        .input-box
+          = f.label :image, class: 'input-box__image' do
+            = fa_icon 'picture-o', class: 'fa fa-image'
+            = f.file_field :image, class: 'input-box__image__file'
+        = f.submit 'Send', class: 'submit-btn'
+      
+
+  -# .form
+  -#   %form( id="new_message" class="new_message" enctype="multipart/form-data" accept-charset="UTF-8" )
+  -#     %input( name="utf8" type="hidden" value="&#x2713;" )
+  -#     %input( type="hidden" name="authenticity_token" value="94sWryZo6n6nSuqmxOcgdbLhCdQio51sSn5Ef914QoTXvi6Du+l5U1YQ22H2rd+qvowdmCMXpE6tU29YUNkW4g==" )
+  -#     .input-box
+  -#       %input( placeholder="type a message" class="input-box__text" type="text" name="message[content]" id="message_content" )
+  -#       %label( class="input-box__image" for="message_image" )
+  -#         %i( class="fa fa-image" )
+  -#         -# type='file' でファイルを選択するフォームができる。
+  -#         %input( class="input-box__image__file" type="file" name="message[image]" id="message_image" )
+  -#     %input( type="submit" name="commit" value="Send" class="submit-btn" data-disable-with="Send" )
+  -# .form
+  -# = form_for [@group, @message] do |f|
+  -#   = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+  -#   .form__mask
+  -#     = f.label :image, class: 'form__mask__image' do
+  -#       = fa_icon 'picture-o', class: 'icon'
+  -#       = f.file_field :image, class: 'hidden'
+  -#   = f.submit 'Send', class: 'form__submit'
