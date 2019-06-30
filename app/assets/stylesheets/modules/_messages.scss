@@ -40,6 +40,9 @@ li {
   display: list-item;
   text-align: -webkit-match-parent;
 }
+li+li{
+  margin-left: 0.3rem;
+}
 
 .wrapper{
 
@@ -51,6 +54,7 @@ li {
   width: calc(100vw - 300px);
   float: left;
 }
+
 
 .main-header{
   height: 100px;
@@ -73,7 +77,6 @@ li {
       font-size: 12px;
       color: #999999;
       &__member{
-
       }
     }
   }
@@ -112,10 +115,16 @@ li {
       margin-left: 10px;
     }
   }
-  &__text{
+  &__lower{
     color: #434a54;
     font-size: 14px;
     margin-bottom: 10px;
+    &__content{
+
+    }
+    &__image{
+      
+    }
   }
 }
 
@@ -125,21 +134,22 @@ li {
   background-color: #ddd;
 }
 
-.new_message{
+#new_message{
   display: flex;
   
+}
+
+#message_content{
+  height: 50px;
+  width: 100%;
+  padding: 0 40px 0 10px;
+  color: #434a54;
+  border-style: none;
 }
 
 .input-box{
   position: relative;
   width: 100%;
-  &__text{
-    height: 50px;
-    width: 100%;
-    padding: 0 40px 0 10px;
-    color: #434a54;
-    border-style: none;
-  }
   &__image{
     font-size: 1.3rem;
     position: absolute;
