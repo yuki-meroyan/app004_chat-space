@@ -1,5 +1,6 @@
 $(function(){
   function buildHTML(message){
+    var getImageTag = message.image.url !== null? `<img class="message__lower__image" src=${message.image.url}></img>`: ""
     var html = `<div class="message">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
@@ -12,16 +13,10 @@ $(function(){
                   <div class="message__lower">
                       <p class="message__lower__content">
                         ${message.content}
-                      </p>`
-    if (message.image.url != null){
-      var html = html + `<img class="message__lower__image" src=${message.image.url}>
-                          </img>
-                          </div>
-                        </div>`
-    } else{                  
-      var html = html + `</div>
-                         </div>`
-    }            
+                      </p>
+                      ${getImageTag}
+                  </div>
+                </div>`
     return html;
   }
 
@@ -40,8 +35,8 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('#message_content').val('');
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      $('#new_message')[0].reset();
       $('.submit-btn').attr('disabled', false);
     })
     .fail(function(){
