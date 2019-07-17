@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-# public => どこからでもアクセス可能
+# public    どこからでもアクセス可能
 # protected に設定されたメソッドは、そのメソッドを持つオブジェクトが self であるコンテキスト(メソッド定義式や instance_eval )でのみ呼び出せ ます。
 # private   に設定されたメソッドは関数形式でしか呼び出せません。
 
