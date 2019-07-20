@@ -21,25 +21,25 @@ $(function(){
   }
 
   function buildMessageHTML(message){
-    var getMessageContent = message.content?  '<p class="message__lower__content">' +
-                                                message.content +
-                                              '</p>': ""
+    var getMessageContent = message.content?  `<p class="message__lower__content">
+                                                 ${message.content}
+                                               </p>`: ""
                                               
-    var getMessageImage = message.image.url? '<img src="' + message.image.url + '" class="message__lower__image" >': ""
+    var getMessageImage = message.image.url? `<img src= ${message.image.url} class="message__lower__image" >`: ""
 
-    var html =  '<div class="message" data-id=' + message.id + '>' +
-                  '<div class="message__upper-info">' +
-                  '<div class="message__upper-info__talker">' +
-                    message.user_name +
-                  '</div>' +
-                  '<div class="message__upper-info__date">' +
-                    message.created_at +
-                  '</div>' +
-                '</div>' +
-                '<div class="message__lower">' + 
-                  getMessageContent +
-                  getMessageImage +
-                '</div>'
+    var html = `<div class="message" data-id=${message.id}>
+                  <div class="message__upper-info">
+                  <div class="message__upper-info__talker">
+                    ${message.user_name}
+                  </div>
+                  <div class="message__upper-info__date">
+                    ${message.created_at}
+                  </div>
+                </div>
+                <div class="message__lower"> 
+                  ${getMessageContent}
+                  ${getMessageImage}
+                </div>`
     return html;
   };
 
