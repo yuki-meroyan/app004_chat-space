@@ -71,7 +71,6 @@ $(function(){
 
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    console.log(location.pathname.search('groups/\[0-9]+\/messages'))
     if (location.pathname.search('groups/\[0-9]+\/messages') == 1 ){
       last_message_id = $('.message:last').data('message_id');
       var groupId = $('.main-header').data('group_id')
