@@ -39,6 +39,7 @@ set :default_env, {
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+  DEVISE_SECRET_KEY: ENV["DEVISE_SECRET_KEY"]
 }
 
 # secrets.yml用のシンボリックリンクを追加
