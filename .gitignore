@@ -18,6 +18,7 @@
 
 # コミットしたくないファイル・ディレクトリを設定
 public/uploads/*
+config/secrets.yml
 
 # Ignore uploaded files in development
  /public/uploads/
