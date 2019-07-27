@@ -9,6 +9,9 @@ set :application, 'app004_chat-space'
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:yuki-meroyan/app004_chat-space.git'
 
+# secrets.yml用のシンボリックリンクを追加
+set :linked_files, %w{ config/secrets.yml }
+
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
@@ -34,8 +37,7 @@ set :default_env, {
   DEVISE_SECRET_KEY: ENV["DEVISE_SECRET_KEY"]
 }
 
-# secrets.yml用のシンボリックリンクを追加
-set :linked_files, %w{ config/secrets.yml }
+
 
 # 元々記述されていた after 「'deploy:publishing', 'deploy:restart'」以下を削除して、次のように書き換え
 
