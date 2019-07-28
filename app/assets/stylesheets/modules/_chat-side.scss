@@ -36,19 +36,14 @@
   background-color: #2f3e51;
   padding: 20px 20px 0;
   overflow: scroll;
-}
-
-.group{
-  margin-bottom: 40px;
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
   a {
     color: white;
     text-decoration: none;
   }
+}
+
+.group{
+  margin-bottom: 40px;
   &__group-name{
     font-size: 15px;
     margin-bottom: 5px;

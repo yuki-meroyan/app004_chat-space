@@ -22,8 +22,8 @@
     
     .form
       = form_for [@group, @message] do |f|
-        = f.text_field :content, id: 'message_content', placeholder: 'type a message'
         .input-box
+          = f.text_field :content, id: 'message_content', placeholder: 'type a message'
           = f.label :image, class: 'input-box__image' do
             = fa_icon 'picture-o', class: 'fa fa-image'
             = f.file_field :image, class: 'input-box__image__file'
