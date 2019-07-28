@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var getImageTag = message.image.url !== null? `<img class="message__lower__image" src=${message.image.url}></img>`: ""
+    var getImageTag = message.image? `<img class="message__lower__image" src=${message.image.url}></img>`: ""
     var html = `<div class="message" data-message_id= "${message.id}">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
@@ -25,7 +25,7 @@ $(function(){
                                                  ${message.content}
                                                </p>`: ""
                                               
-    var getMessageImage = message.image.url? `<img src= ${message.image.url} class="message__lower__image" >`: ""
+    var getMessageImage = message.image? `<img src= ${message.image.url} class="message__lower__image" >`: ""
 
     var html = `<div class="message" data-message_id=${message.id}>
                   <div class="message__upper-info">
