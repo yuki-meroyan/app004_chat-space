@@ -25,7 +25,7 @@ $(function(){
                                                  ${message.content}
                                                </p>`: ""
                                               
-    var getMessageImage = message.image.url? `<img src= ${message.image.url} class="message__lower__image" >`: ""
+    var getMessageImage = message.image? `<img src= ${message.image.url} class="message__lower__image" >`: ""
 
     var html = `<div class="message" data-id=${message.id}>
                   <div class="message__upper-info">
