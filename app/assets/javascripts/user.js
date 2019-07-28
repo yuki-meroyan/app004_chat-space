@@ -38,8 +38,8 @@ $(function(){
     var dataId = $(this).data('user-id')
     var dataName = $(this).data('user-name')
     var user = { user_name: dataName, user_id: dataId }
-
     appendGroup(user);
+    $(this).parent().remove();
   });
 
   $('.chat-group-users').on('click', '.chat-group-user__btn', function(e){
@@ -49,22 +49,32 @@ $(function(){
 
   $('#user-search-field').on('keyup', function(){
     var input = $("#user-search-field").val();
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      data: { keyword: input },
-      dataType: 'json'
+    var users = [];
+    $('input[name="group[user_ids][]"]').each(function(i,user){
+      users.push($(user).val());
     })
-    .done(function(users) {
-      $('#user-search-result').empty();
-      if (users.length !== 0) {
-        users.forEach(function(user){
-        appendUser(user);
-        });
-      } 
-      else {
-        appendErrMsgToHTML("ユーザー検索に失敗しました");
-      }
-    })
+    $("#user-srarch-result").empty();
+    if (input.length !== 0) {
+        $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { 
+                keyword: input,
+                selected_users: users
+              },
+        dataType: 'json'
+      })
+      .done(function(users) {
+        $('#user-search-result').empty();
+        if (users.length !== 0) {
+          users.forEach(function(user){
+          appendUser(user);
+          });
+        } 
+        else {
+          appendErrMsgToHTML("ユーザー検索に失敗しました");
+        }
+      })
+    }
   })
 });
