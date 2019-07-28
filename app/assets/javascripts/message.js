@@ -1,6 +1,7 @@
 $(function(){
   function buildHTML(message){
-    var getImageTag = message.image.url? `<img class="message__lower__image" src=${message.image}>`: ""
+    console.log(message.image.url)
+    var getImageTag = message.image.url? `<img class="message__lower__image" src=${message.image.url}>`: ""
     var html = `<div class="message" data-message_id= "${message.id}">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
@@ -48,7 +49,6 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
-    console.log(url)
     $.ajax({
       url: url,
       type: "POST",
